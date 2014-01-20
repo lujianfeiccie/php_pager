@@ -1,0 +1,103 @@
+<style>
+.title{
+ font-size:40px;
+}
+.showtime{
+ font-size:40px;
+ color:ff0000;
+}
+strong{
+ color:ff0000;
+}
+</style>
+<script LANGUAGE="javascript">   
+var dstYear = 2014;
+var dstMonth = 1;
+var dstDate = 1;
+var dstTheme = "神马商城";
+function dsttime(obj)
+{
+   document.getElementById(obj).innerText=  dstYear +"年"+dstMonth+"月"+dstDate+"日";
+}
+</script>
+<form name="form1">   
+<div align="center" align="center">   
+<center>
+<span class="title">离<span id="show"></span><strong><span id="theme"></span></strong>的Alpha版完成还有:<br></span>
+<br>
+
+<span id="showtime" class="showtime"></span>
+</center>   
+</div>   
+</form>   
+<script LANGUAGE="javascript">   
+startclock()   
+var timerID = null;   
+var timerRunning = false;   
+function showtime() {   
+	Today = new Date();   
+var NowHour = Today.getHours();   
+var NowMinute = Today.getMinutes();   
+var NowMonth = Today.getMonth();   
+var NowDate = Today.getDate();   
+var NowYear = Today.getYear();   
+var NowSecond = Today.getSeconds();   
+if (NowYear < 2000)
+{
+	NowYear=1900+NowYear;   
+}
+	Today = null;   
+	//目标时间减去
+	Hourleft = 0 - NowHour   
+	Minuteleft = 0 - NowMinute   
+	Secondleft = 0 - NowSecond   
+	Yearleft = dstYear - NowYear   
+	Monthleft = dstMonth - NowMonth - 1 
+	Dateleft = dstDate - NowDate   
+
+if (Secondleft<0)   
+{   
+	Secondleft=60+Secondleft;   
+	Minuteleft=Minuteleft-1;   //Second不够减,借一分钟来减
+}   
+if (Minuteleft<0)   
+{    
+	Minuteleft=60+Minuteleft;   
+	Hourleft=Hourleft-1;   //Minute不够减，借一小时来减
+}   
+if (Hourleft<0)   
+{   
+	Hourleft=24+Hourleft;   
+	Dateleft=Dateleft-1;   //Hour不够减，借一天来减
+}   
+if (Dateleft<0)   
+{   
+	Dateleft=31+Dateleft;   
+	Monthleft=Monthleft-1;  //日不够减，借月来减 
+}   
+if (Monthleft<0)   
+{   
+	Monthleft=12+Monthleft;   
+	Yearleft=Yearleft-1;   //月不够减，借年来减
+}   
+Temp=Monthleft+'月, '+Dateleft+'天, '+Hourleft+'小时, '+Minuteleft+'分, '+Secondleft+'秒' 
+
+document.getElementById("showtime").innerHTML=Temp;   
+document.getElementById("theme").innerHTML=dstTheme;   
+timerID = setTimeout("showtime()",1000);   
+timerRunning = true;   
+}   
+var timerID = null;   
+var timerRunning = false;   
+function stopclock () {   
+	if(timerRunning)   
+		clearTimeout(timerID);   
+		timerRunning = false;   
+}   
+function startclock () {   
+	dsttime("show");
+	stopclock();   
+	showtime();   
+}   
+// -->   
+</script>   

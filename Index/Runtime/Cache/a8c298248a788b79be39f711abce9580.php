@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?><div class="page"><span>2/10</span><a href="?page=1"><<</a><a href="?page=1"><</a><span>2</span><a href="?page=3">></a><a href="?page=10">>></a></div>

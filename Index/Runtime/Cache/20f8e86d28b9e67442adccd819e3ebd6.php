@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?><div class="page"><span>3/5</span><a href="?page=1">首页</a><a href="?page=2">上一页</a><a href="?page=1">1</a><a href="?page=2">2</a><span>3</span><a href="?page=4">4</a><a href="?page=5">5</a><a href="?page=4">下一页</a><a href="?page=5">尾页</a></div>
