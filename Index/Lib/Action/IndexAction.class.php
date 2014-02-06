@@ -59,11 +59,6 @@ class IndexAction extends Action {
     	if($page>$pages) $page = $pages;
     	//计算查询偏移量
     	$offset = $pagesize*($page-1);
-    	//处理页码合法性
-    	if($page<1) $page = 1;
-    	if($page>$pages) $page = $pages;
-    	//计算查询偏移量
-    	$offset = $pagesize*($page-1);
     	//页码范围计算
     	$init = 1;//起始页码数
     	$max = $pages;//结束页码数
